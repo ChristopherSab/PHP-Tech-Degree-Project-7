@@ -15,4 +15,9 @@ use Illuminate\Http\Request;
 
 Route::get('todos', 'TodoController@index');
 Route::get('todo/{todo}', 'TodoController@show');
-Route::get('todo', 'TodoController@store');
+
+Route::put('todo/{todo}', 'TodoController@update');
+Route::patch('todo/{todo}', 'TodoController@update');
+
+Route::post('todo', 'TodoController@store');
+Route::delete('todo', 'TodoController@destroy');
