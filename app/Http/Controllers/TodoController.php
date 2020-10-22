@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Todo;
 use App\Http\Resources\TodoResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TodoController extends Controller
 {
@@ -31,6 +32,10 @@ class TodoController extends Controller
             'name' => 'required',
             'status' => 'required',
         ]);
+
+        if($validate->fails()){
+            return response($validate->errors(), 400);
+        }
 
         return response(new TodoResource(Todo::create($data)), 201);
     }
@@ -59,6 +64,10 @@ class TodoController extends Controller
             'name' => 'required',
             'status' => 'required',
         ]);
+
+        if($validate->fails()){
+            return response($validate->errors(), 400);
+        }
 
         $todo->update($data);
         return response($todo->update($data), 200);
