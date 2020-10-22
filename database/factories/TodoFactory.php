@@ -9,7 +9,7 @@ $factory->define(Todo::class, function (Faker $faker) {
     return [
 
         'name' => $faker->name,
-        'status' =>$faker->status,
+        'status' =>$faker->word,
         
     ];
 });
