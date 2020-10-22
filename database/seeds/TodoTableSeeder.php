@@ -11,7 +11,7 @@ class TodoTableSeeder extends Seeder
      */
     public function run()
     {
-        //$this->call(TodoTableSeeder::class);
-        factory(\App\Todo::class, 3)->create();
+        $this->call(TodoTableSeeder::class);
+        //factory(\App\Todo::class, 3)->create();
     }
 }
