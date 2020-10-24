@@ -86,7 +86,7 @@
 
                 <div class="links">
                     <a href="https://github.com/ChristopherSab/PHP-Tech-Degree-Project-7/blob/master/README.md" target="_blank">README</a>
-                    <a href="{{env('app_url')}}/api/todo/" target="_blank">Todo</a>
+                    <a href="{{env('app_url')}}/api/todos/" target="_blank">Todo</a>
                     <a href="https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?hl=en" target="_blank">JSON Formatter</a>
                 </div>
             </div>
