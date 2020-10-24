@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Todo::class, function (Faker $faker) {
     return [
 
-        'name' => $faker->name,
+        'name' => $faker->word,
         'status' =>$faker->word,
         
     ];
