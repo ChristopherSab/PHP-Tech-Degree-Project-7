@@ -1,2 +1,13 @@
 ###ALL TODOS
 GET http://localhost:8000/api/todos/
+
+
+###First Post Request
+POST http://localhost:8000/api/todos/
+Content-Type: application/json
+
+{
+
+    "name": "knitting",
+    "status": "completed"
+}

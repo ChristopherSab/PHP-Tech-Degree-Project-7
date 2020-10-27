@@ -27,8 +27,8 @@ class TodoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $data = $request->validate([
+    {  
+        $validate = Validator::make($request->toArray(), [
             'name' => 'required',
             'status' => 'required',
         ]);
@@ -37,7 +37,7 @@ class TodoController extends Controller
             return response($validate->errors(), 400);
         }
 
-        return response(new TodoResource(Todo::create($data)), 201);
+        return response(new TodoResource(Todo::create($validate->validate())), 201);
     }
 
     /**
@@ -60,7 +60,8 @@ class TodoController extends Controller
      */
     public function update(Request $request, Todo $todo)
     {
-        $data = $request->validate([
+        
+        $validate = Validator::make($request->toArray(), [
             'name' => 'required',
             'status' => 'required',
         ]);
@@ -69,8 +70,8 @@ class TodoController extends Controller
             return response($validate->errors(), 400);
         }
 
-        $todo->update($data);
-        return response($todo->update($data), 200);
+        $todo->update($validate->validate());
+        return response(new TodoResource($todo), 201);
     }
 
     /**
@@ -83,5 +84,7 @@ class TodoController extends Controller
     {
         $todo->delete();
         return response(null, 204);
+
     }
+
 }
